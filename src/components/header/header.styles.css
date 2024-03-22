@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    padding: 20px 60px;
+    height: 68px;
+    z-index: 2;
+    background-color: rgb(215, 206, 206);
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background: transparent;
+    transition: all 0.4s linear;
+}
+
+.header--left,
+.header--right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
+
+.primary-navigation {
+    display: flex;
+}
+
+.nav-itemm {
+    color: #fff;
+}
+
+.primary-navigation li:not(:last-child) {
+    margin-right: 15px;
+}
+
+a.active {
+    font-weight: bold;
+}

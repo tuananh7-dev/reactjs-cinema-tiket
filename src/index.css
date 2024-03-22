@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #e2e2e2;
+}
+
+body {
+    font-family: "Noto Sans SC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 8px;
+    border-style: none;
+    min-width: fit-content;
+    outline: none;
+    padding: 10px 16px;
+    text-align: center;
+    user-select: none;
+    background-color: red;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: rgb(251, 47, 47);
+}
