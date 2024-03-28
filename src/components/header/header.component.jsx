@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
-import logo from "../../assets/cinema-ticket-logo.svg";
+import Button from "../button/button.component";
+import logo from "../../assets/cinema-ticket-logo.png";
 
 import "./header.styles.css";
 import { useEffect, useState } from "react";
@@ -36,7 +37,7 @@ function Header() {
                 </ul>
             </div>
             <div className="header--right">
-                <button className="secondary-navigation">Đăng nhập/đăng kí</button>
+                <Button className="secondary-navigation" content="Đăng nhập/đăng kí" />
             </div>
         </header>
     );

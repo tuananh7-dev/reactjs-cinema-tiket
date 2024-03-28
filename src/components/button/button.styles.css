@@ -1,0 +1,57 @@
+button.btn-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    border-style: none;
+    min-width: fit-content;
+    outline: none;
+    padding: 10px 16px;
+    user-select: none;
+    background-color: red;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+button.btn-default:hover {
+    opacity: 0.8;
+}
+
+button .btn-default-icon {
+    width: 30px;
+    margin-right: 20px;
+}
+
+button .btn-default-content {
+    font-size: 16px;
+}
+
+button .btn-default-content.bold {
+    font-weight: bold;
+}
+
+button .btn-default-content.size-22 {
+    font-size: 22px;
+}
+
+/* .btn-basic {
+    display: flex;
+    min-width: 200px;
+    align-items: center;
+    font-weight: bold;
+}
+    
+.btn-basic:hover {
+    background-color: #d8d8d8;
+}
+
+.btn-basic img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.btn-basic span {
+    font-size: 22px;
+} */

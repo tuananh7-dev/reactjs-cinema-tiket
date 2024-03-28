@@ -10,6 +10,18 @@ const instance = axios.create({
     },
 });
 
+instance.interceptors.request.use(
+    function (config) {
+        const { method, baseURL, url, params } = config;
+        console.log("🚀 ~ Axios Request:", { method, baseURL, url, params });
+        return config;
+    },
+    function (error) {
+        console.log("🚀 ~ axios request error:", error);
+        return Promise.reject(error);
+    }
+);
+
 instance.interceptors.response.use(
     function (response) {
         return response.data;

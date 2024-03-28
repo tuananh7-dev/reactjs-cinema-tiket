@@ -6,12 +6,15 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainTemplate from "./components/main-template/main-template.component";
 import Home from "./pages/home/home.component";
 import store from "./redux/store";
+import FilmDetail from "./pages/film-detail/film-detail.component";
+import PageNotFound from "./pages/not-found/not-found.component";
 
 import "./index.css";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainTemplate />,
+        errorElement: <PageNotFound />,
         children: [
             {
                 index: true,
@@ -20,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: "lich-chieu",
                 element: <p style={{ height: "100vh" }}>Lịch chiếu</p>,
+            },
+            {
+                path: "/phim/chi-tiet/:id",
+                element: <FilmDetail />,
             },
         ],
     },

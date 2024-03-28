@@ -1,0 +1,78 @@
+.film-detail {
+    display: flex;
+    gap: 100px;
+    padding: 0 60px;
+    padding-top: 80px;
+}
+
+.film-detail .btn-booking {
+    width: 100%;
+}
+
+.detail-left {
+    width: 400px;
+}
+
+.main-thumbnail {
+    width: inherit;
+    max-height: 800px;
+}
+
+.detail-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #e0e0e0;
+}
+
+.film__desc {
+    text-align: justify;
+}
+
+.film-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+}
+
+.film-info__title {
+    margin-bottom: 10px;
+}
+
+.trailer-list {
+    display: flex;
+}
+
+.trailer-item {
+    position: relative;
+    width: 313px;
+    cursor: pointer;
+}
+
+.trailer-item:hover > .bgr-trailer-play {
+    display: flex;
+}
+
+.trailer {
+    width: inherit;
+    border-radius: 7px;
+    height: 100%;
+}
+
+.bgr-trailer-play {
+    position: absolute;
+    background-color: #bebebe26;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    justify-content: center;
+    display: none;
+    transition: all 0.3s linear;
+}
+
+.trailer-play {
+    width: 80px;
+    opacity: 0.3;
+}

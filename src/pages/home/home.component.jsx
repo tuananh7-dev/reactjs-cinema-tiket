@@ -2,14 +2,16 @@ import { Carousel } from "@trendyol-js/react-carousel";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import Button from "../../components/button/button.component";
+import FilmItem from "../../components/film-item/film-item.component";
 import {
     filterFilmBannerThunk,
     filterFilmIsCommingThunk,
     filterFilmIsReleasedThunk,
 } from "../../redux/film/film.thunk";
 
-import JpgBannerTest from "../../assets/banner-test.jpg";
-import SvgTicket from "../../assets/ticket.svg";
+import SvgTicket from "../../assets/ticket-red.svg";
 import SvgInfo from "../../assets/info.svg";
 
 import "./home.styles.css";
@@ -18,9 +20,6 @@ function Home() {
     const dispatch = useDispatch();
 
     const { listFilmIsReleased, listFilmIsComming, listFilmBanner } = useSelector((state) => state.film);
-    console.log("🚀 ~ Home ~ listFilmBanner:", listFilmBanner);
-    console.log("🚀 ~ Home ~ listFilmIsComming:", listFilmIsComming);
-    console.log("🚀 ~ Home ~ listFilmIsReleased:", listFilmIsReleased);
 
     useEffect(() => {
         dispatch(filterFilmIsReleasedThunk());
@@ -34,16 +33,22 @@ function Home() {
                 <img className="banner" src={listFilmBanner[0]?.banner} alt="" />
                 <div className="list-button">
                     <Link to="#">
-                        <button className="btn-basic btn-film-booking">
-                            <img src={SvgTicket} alt="" />
-                            <span>Đặt vé</span>
-                        </button>
+                        <Button
+                            type="icon"
+                            icon={SvgTicket}
+                            className="btn-film-booking"
+                            content="Đặt vé"
+                            contentStyle="bold size-22"
+                        />
                     </Link>
-                    <Link to="#">
-                        <button className="btn-basic btn-film-info">
-                            <img src={SvgInfo} alt="" />
-                            <span>Thông tin khác</span>
-                        </button>
+                    <Link to={"/phim/chi-tiet/" + listFilmBanner[0]?.id}>
+                        <Button
+                            type="icon"
+                            icon={SvgInfo}
+                            className="btn-film-info"
+                            content="Thông tin khác"
+                            contentStyle="bold size-22"
+                        />
                     </Link>
                 </div>
             </div>
@@ -52,7 +57,9 @@ function Home() {
                 {listFilmIsReleased.length > 0 && (
                     <Carousel show={6.5} slide={3} swiping={true} transition={1} className="list-film__carousel">
                         {listFilmIsReleased.map((film) => (
-                            <img key={film.id} src={film.thumbnail} alt={film.name} title={film.name} />
+                            <Link key={film.id} to={"/phim/chi-tiet/" + film.id}>
+                                <FilmItem thumbnail={film.thumbnail} name={film.name} />
+                            </Link>
                         ))}
                     </Carousel>
                 )}
@@ -62,7 +69,9 @@ function Home() {
                 {listFilmIsComming.length > 0 && (
                     <Carousel show={6.5} slide={3} swiping={true} transition={1} className="list-film__carousel">
                         {listFilmIsComming.map((film) => (
-                            <img key={film.id} src={film.thumbnail} alt={film.name} title={film.name} />
+                            <Link key={film.id} to={"/phim/chi-tiet/" + film.id}>
+                                <FilmItem thumbnail={film.thumbnail} name={film.name} />
+                            </Link>
                         ))}
                     </Carousel>
                 )}

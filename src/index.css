@@ -26,21 +26,30 @@ body {
     font-style: normal;
 }
 
-button {
+button[data-direction="left"],
+button[data-direction="right"] {
+    background: url(./assets/arrow-right-solid.svg) 50% no-repeat;
+    border: none;
     cursor: pointer;
-    border-radius: 8px;
-    border-style: none;
-    min-width: fit-content;
-    outline: none;
-    padding: 10px 16px;
-    text-align: center;
-    user-select: none;
-    background-color: red;
-    color: #ffffff;
-    font-size: 14px;
-    text-decoration: none;
+    height: 80px;
+    outline: 0;
+    position: absolute;
+    width: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s linear;
 }
 
-button:hover {
-    background-color: rgb(251, 47, 47);
+button[data-direction="left"] {
+    background: url(./assets/arrow-left-solid.svg) 50% no-repeat;
+}
+
+button[data-direction="right"] {
+    right: 0;
+}
+
+button[data-direction="left"]:hover,
+button[data-direction="right"]:hover {
+    background-color: unset;
+    width: 45px;
 }
