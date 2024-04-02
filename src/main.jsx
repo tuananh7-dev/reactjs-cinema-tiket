@@ -8,6 +8,9 @@ import Home from "./pages/home/home.component";
 import store from "./redux/store";
 import FilmDetail from "./pages/film-detail/film-detail.component";
 import PageNotFound from "./pages/not-found/not-found.component";
+import LoginTemplate from "./components/login-template/login-template.component";
+import Login from "./pages/login/login.component";
+import Register from "./pages/register/register.component";
 
 import "./index.css";
 const router = createBrowserRouter([
@@ -27,6 +30,26 @@ const router = createBrowserRouter([
             {
                 path: "/phim/chi-tiet/:id",
                 element: <FilmDetail />,
+            },
+        ],
+    },
+    {
+        path: "/dang-nhap",
+        element: <LoginTemplate />,
+        children: [
+            {
+                index: true,
+                element: <Login />,
+            },
+        ],
+    },
+    {
+        path: "/dang-ky",
+        element: <LoginTemplate />,
+        children: [
+            {
+                index: true,
+                element: <Register />,
             },
         ],
     },

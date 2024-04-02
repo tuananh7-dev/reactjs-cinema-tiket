@@ -102,6 +102,7 @@ function FilmDetail() {
                             onClick={() => onClickOtherFilm(film.id)}
                         />
                     ))}
+                    ``
                 </div>
             </div>
             <TrailerModal />

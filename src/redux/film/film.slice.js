@@ -32,7 +32,6 @@ export const filmSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(filterFilmIsReleasedThunk.fulfilled, (state, action) => {
-                console.log("set lai list phim", action.payload);
                 state.listFilmIsReleased = action.payload;
             })
             .addCase(filterFilmIsCommingThunk.fulfilled, (state, action) => {

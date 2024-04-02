@@ -3,7 +3,7 @@ import axios from "axios";
 import linkApi from "./link-api.config";
 
 const instance = axios.create({
-    baseURL: linkApi.base_url + "/api",
+    baseURL: linkApi.base_url,
     headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
@@ -12,23 +12,23 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
     function (config) {
-        const { method, baseURL, url, params } = config;
-        console.log("🚀 ~ Axios Request:", { method, baseURL, url, params });
+        const { method, baseURL, url, params, data } = config;
+        console.log("🚀 ~ Axios Request:", { method, baseURL, url, params, data });
         return config;
     },
     function (error) {
-        console.log("🚀 ~ axios request error:", error);
+        console.log("🚀 ~ Axios request error:", error);
         return Promise.reject(error);
     }
 );
 
 instance.interceptors.response.use(
     function (response) {
-        return response.data;
+        return { data: response.data?.data, status: response.status };
     },
-    function (error) {
-        console.log("🚀 ~ axios response error:", error);
-        return Promise.reject(error);
+    async function (error) {
+        console.log("🚀 ~ Axios response error:", error.response);
+        return error.response;
     }
 );
 
