@@ -12,6 +12,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
     function (config) {
+        config.headers.Authorization = "Bearer " + localStorage.getItem("token") || "";
         const { method, baseURL, url, params, data } = config;
         console.log("🚀 ~ Axios Request:", { method, baseURL, url, params, data });
         return config;

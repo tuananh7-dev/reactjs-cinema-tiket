@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setIsLogin } from "../../redux/account/account.slice";
+import { getMeThunk } from "../../redux/account/account.thunk";
 import Button from "../button/button.component";
 import PngLogo from "../../assets/cinema-ticket-logo.png";
 import SvgAvatar from "../../assets/avatar.svg";
@@ -13,7 +13,7 @@ function Header({ displayNav = true }) {
     const [bgrHeader, setBgrHeader] = useState("");
     const dispatch = useDispatch();
 
-    const { isLogin } = useSelector((state) => state.account);
+    const { profile } = useSelector((state) => state.account);
 
     const listenScrollEvent = (e) => {
         if (window.scrollY > 150) {
@@ -24,7 +24,7 @@ function Header({ displayNav = true }) {
     };
 
     useEffect(() => {
-        dispatch(setIsLogin());
+        dispatch(getMeThunk());
         window.addEventListener("scroll", listenScrollEvent);
     }, []);
 
@@ -47,7 +47,7 @@ function Header({ displayNav = true }) {
             </div>
             {!displayNav ? (
                 false
-            ) : !isLogin ? (
+            ) : !profile ? (
                 <div className="header--right">
                     <Link to="/dang-nhap">
                         <Button className="secondary-navigation" content="Đăng nhập/đăng kí" />

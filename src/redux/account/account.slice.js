@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getMeThunk } from "./account.thunk";
 
 const initialState = {
-    isLogin: false,
+    profile: null,
 };
 
 export const accountSlide = createSlice({
     name: "account",
     initialState,
-    reducers: {
-        setIsLogin: (state, action) => {
-            state.isLogin = localStorage.getItem("token") ? true : false;
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getMeThunk.fulfilled, (state, action) => {
+            state.profile = action.payload;
+        });
     },
 });
-
-export const { setIsLogin } = accountSlide.actions;
 
 export default accountSlide.reducer;

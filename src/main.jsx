@@ -34,21 +34,14 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/dang-nhap",
         element: <LoginTemplate />,
         children: [
             {
-                index: true,
+                path: "/dang-nhap",
                 element: <Login />,
             },
-        ],
-    },
-    {
-        path: "/dang-ky",
-        element: <LoginTemplate />,
-        children: [
             {
-                index: true,
+                path: "/dang-ky",
                 element: <Register />,
             },
         ],

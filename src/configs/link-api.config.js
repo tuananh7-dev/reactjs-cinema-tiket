@@ -7,6 +7,7 @@ const linkApi = {
     get_random_film_released: "/api/film/get-random-film-released",
     register: "/api/auth/register",
     login: "/api/auth/login",
+    get_me: "/api/auth/get-me",
 };
 
 export default linkApi;

@@ -34,3 +34,15 @@ export const loginThunk = createAsyncThunk("account/registerThunk", async ({ use
     }
     return;
 });
+
+export const getMeThunk = createAsyncThunk("account/getMeThunk", async () => {
+    if (!localStorage.getItem("token")) {
+        return null;
+    }
+    const result = await callApi.get(`${linkApi.get_me}`);
+
+    if (result.status === 200) {
+        return result.data;
+    }
+    return null;
+});
