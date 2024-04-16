@@ -1,0 +1,39 @@
+.payment {
+    color: #ffffff;
+    height: 100vh;
+}
+
+.payment .main {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 35px 70px;
+}
+
+.payment .main::before {
+    content: "";
+    height: 68px;
+}
+
+.payment .main > * {
+    line-height: 45px;
+}
+
+.main .title {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.payment .banking {
+    display: flex;
+    gap: 50px;
+}
+
+.qr-default {
+    width: 490px;
+    height: 490px;
+}
+
+.btn__accept-payment {
+    width: 100%;
+}

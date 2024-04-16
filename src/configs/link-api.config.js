@@ -8,6 +8,9 @@ const linkApi = {
     register: "/api/auth/register",
     login: "/api/auth/login",
     get_me: "/api/auth/get-me",
+    get_show_time_by_film_id: "/api/booking/get-show-time-by-film",
+    get_room_structure: "/api/booking/get-room-structure",
+    gen_qr_code: "/api/booking/gen-qr-code",
 };
 
 export default linkApi;

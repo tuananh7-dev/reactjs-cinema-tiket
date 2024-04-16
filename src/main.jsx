@@ -11,6 +11,9 @@ import PageNotFound from "./pages/not-found/not-found.component";
 import LoginTemplate from "./components/login-template/login-template.component";
 import Login from "./pages/login/login.component";
 import Register from "./pages/register/register.component";
+import PickTime from "./pages/pick-time/pick-time.component";
+import PickSeat from "./pages/pick-seat/pick-seat.component";
+import Payment from "./pages/payment/payment.component";
 
 import "./index.css";
 const router = createBrowserRouter([
@@ -43,6 +46,22 @@ const router = createBrowserRouter([
             {
                 path: "/dang-ky",
                 element: <Register />,
+            },
+        ],
+    },
+    {
+        children: [
+            {
+                path: "/dat-ve/:id",
+                element: <PickTime />,
+            },
+            {
+                path: "/chon-ghe",
+                element: <PickSeat />,
+            },
+            {
+                path: "/thanh-toan",
+                element: <Payment />,
             },
         ],
     },

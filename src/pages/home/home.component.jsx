@@ -32,7 +32,7 @@ function Home() {
             <div className="banner">
                 <img className="banner" src={listFilmBanner[0]?.banner} alt="" />
                 <div className="list-button">
-                    <Link to="#">
+                    <Link to={"/dat-ve/" + listFilmBanner[0]?.id}>
                         <Button
                             type="icon"
                             icon={SvgTicket}

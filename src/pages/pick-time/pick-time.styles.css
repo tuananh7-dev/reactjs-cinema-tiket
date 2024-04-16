@@ -1,0 +1,56 @@
+.booking .main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    color: #ffffff;
+}
+
+.booking .banner {
+    width: 100%;
+    height: 500px;
+}
+
+.booking .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.booking .container {
+    margin-top: 15px;
+    width: 1400px;
+}
+
+.pick {
+    margin-top: 20px;
+}
+
+.list {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.list li {
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.list .selected {
+    background-color: #4a0f0f;
+}
+
+.list li:hover {
+    background-color: #4a0f0f;
+}
+
+.list__date li {
+    width: 50px;
+}
+
+.btn__next-step {
+    float: right;
+}

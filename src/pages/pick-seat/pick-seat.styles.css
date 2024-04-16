@@ -1,0 +1,127 @@
+:root {
+    --height-footer-booking: 100px;
+    --width-seat: calc(100% / 17);
+}
+
+.pick-seat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #ffffff;
+    position: relative;
+}
+
+header {
+    display: flex;
+    padding: 10px 70px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #141414;
+}
+
+header h2 {
+    color: #ffffff;
+}
+
+.count-down-time {
+    display: flex;
+    align-items: flex-start;
+}
+
+.count-down {
+    margin-left: 5px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pick-seat .main {
+    margin-top: 70px;
+    align-items: self-start;
+    justify-content: flex-start;
+    padding: 0 70px;
+    flex-direction: column;
+}
+
+.pick-seat .main::after {
+    content: "";
+    display: block;
+    height: var(--height-footer-booking);
+}
+
+.pick-seat .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen-info {
+    margin: 30px auto;
+    margin-bottom: 0;
+}
+
+.screen {
+    width: 1000px;
+    height: 40px;
+    border: solid 5px #ffffff;
+    border-color: #ffffff transparent transparent transparent;
+    border-radius: 50%/100px 100px 0 0;
+}
+
+.seats {
+    width: 100%;
+}
+
+.seat__desc {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 30px;
+}
+
+.seat__desc--item {
+    text-align: center;
+}
+
+.seat-img {
+    width: 50px;
+}
+
+.seat__map {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.seat__empty {
+    background-color: #ff000000;
+    width: 50px;
+    height: 50px;
+}
+
+.seat__map--item {
+    width: var(--width-seat);
+    cursor: pointer;
+}
+
+.seat--double {
+    width: calc(var(--width-seat) * 2);
+    height: 85px;
+}
+
+.pick-seat footer {
+    padding: unset;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: var(--height-footer-booking);
+}
+
+.pick-seat footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1080px;
+}
