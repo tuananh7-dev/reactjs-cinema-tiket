@@ -11,7 +11,9 @@ import {
     setdateSelectedId,
     setPaymentInfo,
     setShowTimeSelected,
+    increaseStep,
     setTimeSelectedId,
+    resetStep,
 } from "../../redux/booking/booking.slice";
 import { toastError } from "../../configs/toast.config";
 
@@ -58,6 +60,7 @@ function PickTime() {
                     time: timeSelected.time,
                 })
             );
+            dispatch(increaseStep());
             navigate("/chon-ghe");
         }
         toastError("Vui lòng chọn thời gian");
@@ -65,6 +68,8 @@ function PickTime() {
 
     useEffect(() => {
         dispatch(getShowTimeByFilmIdThunk(params.id));
+        dispatch(resetStep());
+        dispatch(setTimeSelectedId(null));
     }, []);
 
     return (

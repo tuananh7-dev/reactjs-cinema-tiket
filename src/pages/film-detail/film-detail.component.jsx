@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Button from "../../components/button/button.component";
-import PngTicket from "../../assets/ticket.png";
+import PngTicket from "../../assets/ticket.svg";
 import Jpg404Image from "../../assets/404-image.jpg";
 import SvgPlay from "../../assets/play.svg";
 
@@ -46,13 +46,15 @@ function FilmDetail() {
                     alt={filmDetail?.name}
                 />
                 {filmDetail && (
-                    <Button
-                        type="icon"
-                        icon={PngTicket}
-                        className="btn-booking"
-                        content="ĐẶT VÉ"
-                        contentStyle="bold size-22"
-                    />
+                    <Link to={"/dat-ve/" + filmDetail.id}>
+                        <Button
+                            type="icon"
+                            icon={PngTicket}
+                            className="btn-booking"
+                            content="ĐẶT VÉ"
+                            contentStyle="bold size-22"
+                        />
+                    </Link>
                 )}
             </div>
             <div className="detail-right">

@@ -1,3 +1,9 @@
+:root {
+    --height-footer-booking: 100px;
+    --height-header: 68px;
+    --width-seat: calc(100% / 17);
+}
+
 * {
     margin: 0;
     padding: 0;

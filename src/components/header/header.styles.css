@@ -1,13 +1,12 @@
 header {
     display: flex;
     padding: 20px 60px;
-    height: 68px;
+    height: var(--height-header);
     z-index: 10;
-    background-color: rgb(215, 206, 206);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7) 10%, transparent);
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    background: transparent;
     transition: all 0.4s linear;
 }
 

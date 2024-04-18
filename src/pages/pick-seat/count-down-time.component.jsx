@@ -37,7 +37,7 @@ function CountDownTime() {
         }, 1000);
         setTimeout(() => {
             toastSuccess("Bạn có 7 phút để thực hiện chọn ghế");
-        }, 300);
+        }, 500);
     }, []);
 
     return (

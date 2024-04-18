@@ -6,7 +6,13 @@ import { ToastContainer } from "react-toastify";
 import CountDownTime from "./count-down-time.component";
 import Button from "../../components/button/button.component";
 import { getRoomStructureThunk } from "../../redux/booking/booking.thunk";
-import { removeSeatSelected, setPaymentInfo, setSeatSelected } from "../../redux/booking/booking.slice";
+import {
+    increaseStep,
+    removeSeatSelected,
+    resetSeatSelected,
+    setPaymentInfo,
+    setSeatSelected,
+} from "../../redux/booking/booking.slice";
 import { toastError } from "../../configs/toast.config";
 import { formatCurrency } from "../../helpers/curency.helper";
 
@@ -54,7 +60,7 @@ function PickSeat() {
     let bookedSeats = useRef([]);
     let totalPrice = useRef(0);
 
-    const { filmSelected, timeSelectedId, showTimeSelected, roomStructure, seatSelected } = useSelector(
+    const { filmSelected, timeSelectedId, showTimeSelected, roomStructure, seatSelected, step } = useSelector(
         (state) => state.booking
     );
 
@@ -90,6 +96,7 @@ function PickSeat() {
                     room: roomStructure.name,
                 })
             );
+            dispatch(increaseStep());
             navigate("/thanh-toan");
         } else {
             toastError("Vui lòng chọn ít nhất 1 ghế");
@@ -101,7 +108,12 @@ function PickSeat() {
             navigate(-1);
             return;
         }
+        if (step !== 2) {
+            navigate(-1);
+            return;
+        }
         dispatch(getRoomStructureThunk(showTimeSelected.roomId));
+        dispatch(resetSeatSelected());
         // Lay ra id cac ghe da duoc dat
         const bookedSeatInfos = showTimeSelected.infos.find((item) => item.id == timeSelectedId).bookedSeats;
         const temp = [];
@@ -192,7 +204,7 @@ function PickSeat() {
                         <div className="count-down-time">
                             <p>Thời gian còn lại:</p>
                             {/* <p className="count-down">06:32</p> */}
-                            <CountDownTime />
+                            {step === 2 && <CountDownTime />}
                         </div>
                     </header>
                     <div className="main">

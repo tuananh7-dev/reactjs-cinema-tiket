@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getRoomStructureThunk, getShowTimeByFilmIdThunk } from "./booking.thunk";
 
 const initialState = {
+    step: 0,
     filmSelected: null,
     showTime: null,
     showTimeSelected: null,
@@ -36,11 +37,39 @@ export const bookingSlice = createSlice({
         setSeatSelected: (state, action) => {
             state.seatSelected.push(action.payload);
         },
+        resetSeatSelected: (state, action) => {
+            state.seatSelected = [];
+        },
         removeSeatSelected: (state, action) => {
             state.seatSelected = state.seatSelected.filter((seat) => seat.seatId != action.payload);
         },
         setPaymentInfo: (state, action) => {
             state.paymentInfo = { ...state.paymentInfo, ...action.payload };
+        },
+        increaseStep: (state, action) => {
+            state.step = state.step + 1;
+        },
+        resetStep: (state, action) => {
+            state.step = 1;
+        },
+        resetBooking: (state) => {
+            state.step = 0;
+            state.filmSelected = null;
+            state.showTime = null;
+            state.showTimeSelected = null;
+            state.dateSelectedId = null;
+            state.timeSelectedId = null;
+            state.roomStructure = null;
+            state.seatSelected = [];
+            state.paymentInfo = {
+                filmName: "",
+                date: "",
+                time: "",
+                during: 0,
+                room: "",
+                seats: [],
+                totalPrice: 0,
+            };
         },
     },
     extraReducers: (builder) => {
@@ -63,6 +92,10 @@ export const {
     setSeatSelected,
     removeSeatSelected,
     setPaymentInfo,
+    increaseStep,
+    resetStep,
+    resetBooking,
+    resetSeatSelected,
 } = bookingSlice.actions;
 
 export default bookingSlice.reducer;

@@ -22,10 +22,13 @@ export const getRoomStructureThunk = createAsyncThunk("booking/getRoomStructureT
 });
 
 // Tao ma QR
-export const genQRCodeThunk = createAsyncThunk("booking/genQRCodeThunk", async (seatSelected) => {
-    const res = await callApi.post(`${linkApi.gen_qr_code}`, { seatSelected });
-    if (res.status === 403 || res.status === 401) {
-        window.location.href = "/dang-nhap";
+export const genQRCodeThunk = createAsyncThunk(
+    "booking/genQRCodeThunk",
+    async ({ showTimeId, timeId, seatSelected }) => {
+        const res = await callApi.post(`${linkApi.gen_qr_code}`, { showTimeId, timeId, seatSelected });
+        if (res.status === 403 || res.status === 401) {
+            window.location.href = "/dang-nhap";
+        }
+        return res.data[0];
     }
-    return res.data[0];
-});
+);

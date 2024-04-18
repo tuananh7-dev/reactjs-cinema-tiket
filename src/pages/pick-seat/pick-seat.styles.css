@@ -1,8 +1,3 @@
-:root {
-    --height-footer-booking: 100px;
-    --width-seat: calc(100% / 17);
-}
-
 .pick-seat {
     display: flex;
     flex-direction: column;
@@ -11,12 +6,13 @@
     position: relative;
 }
 
-header {
+.pick-seat header {
     display: flex;
     padding: 10px 70px;
     justify-content: space-between;
     align-items: center;
     background-color: #141414;
+    background-image: unset;
 }
 
 header h2 {

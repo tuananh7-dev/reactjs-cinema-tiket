@@ -3,16 +3,17 @@
     height: 100vh;
 }
 
+.payment header {
+    position: relative;
+    background-image: unset;
+}
+
 .payment .main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 35px 70px;
-}
-
-.payment .main::before {
-    content: "";
-    height: 68px;
+    padding: 15px 70px;
+    height: calc(100% - var(--height-header));
 }
 
 .payment .main > * {
@@ -29,11 +30,26 @@
     gap: 50px;
 }
 
-.qr-default {
-    width: 490px;
-    height: 490px;
+.img-qr-code {
+    width: auto;
+    height: 100%;
 }
 
 .btn__accept-payment {
     width: 100%;
+}
+
+.banking {
+    max-height: 430px;
+}
+
+.title-info {
+    margin-top: -15px;
+}
+
+.note::before {
+    content: "*";
+    color: red;
+    margin-right: 5px;
+    font-weight: bold;
 }
