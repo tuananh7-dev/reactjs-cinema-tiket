@@ -1,12 +1,14 @@
 import { QRCodeSVG } from "qrcode.react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 import { calcTimeEndFilm, formatDate } from "../../helpers/date-time.helper";
 import { getMyTicketThunk } from "../../redux/ticket/ticket.thunk";
 
 import "./my-ticket.styles.css";
 import { formatCurrency } from "../../helpers/curency.helper";
+import { toastWarning } from "../../configs/toast.config";
 
 const SEAT_ROW = ["A", "B", "C", "D", "E", "F", "G", "H", "J"];
 
@@ -21,11 +23,16 @@ function MyTicket() {
     };
 
     useEffect(() => {
-        dispatch(getMyTicketThunk());
+        dispatch(getMyTicketThunk()).then((res) => {
+            if (res.payload.length === 0) {
+                toastWarning("Bạn chưa có vé nào !");
+            }
+        });
     }, []);
 
     return (
         <div className="my-ticket">
+            <ToastContainer />
             <h2>VÉ CỦA TÔI</h2>
             <div className="info">
                 <div className="ticket scrollable">
@@ -43,7 +50,7 @@ function MyTicket() {
                             </div>
                         ))}
                 </div>
-                <div className="ticket-detail">
+                <div className="ticket-detail scrollable">
                     {ticketDetail && (
                         <>
                             <div className="qr-code">

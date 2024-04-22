@@ -19,13 +19,12 @@
     margin-top: 15px;
     display: flex;
     gap: 40px;
+    height: 600px;
 }
 
 .ticket {
     flex-grow: 2;
     cursor: pointer;
-    height: 600px;
-    overflow-y: scroll;
 }
 
 .ticket,
@@ -66,8 +65,7 @@
 }
 
 .ticket-detail {
-    flex-grow: 1;
-    flex-basis: 300px;
+    width: 390px;
     display: flex;
     flex-direction: column;
 }
@@ -94,6 +92,10 @@
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
+}
+
+.scrollable {
+    overflow-y: scroll;
 }
 
 /* Kiểu thanh cuộn cho trình duyệt WebKit */

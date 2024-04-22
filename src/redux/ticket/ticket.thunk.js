@@ -8,6 +8,5 @@ export const getMyTicketThunk = createAsyncThunk("ticket/getMyTicketThunk", asyn
     if (res.status === 403 || res.status === 401) {
         window.location.href = "/dang-nhap";
     }
-    console.log("🚀 ~ getMyTicketThunk ~ res:", res);
     return res.data;
 });
