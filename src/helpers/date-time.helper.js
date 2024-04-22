@@ -17,3 +17,13 @@ export const formatDate = (string) => {
 
     return `${day}/${month}/${year}`;
 };
+
+export const calcTimeEndFilm = (timeStart, during) => {
+    const timeStartSplit = timeStart.split(":");
+    const hourStart = timeStartSplit[0];
+    const minuteStart = timeStartSplit[1];
+    const date = new Date();
+    date.setHours(hourStart, minuteStart);
+    date.setMinutes(date.getMinutes() + during);
+    return date.getHours().toString().padStart(2, "0") + ":" + date.getMinutes().toString().padStart(2, "0");
+};

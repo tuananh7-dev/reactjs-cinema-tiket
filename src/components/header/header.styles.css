@@ -43,3 +43,31 @@ a.active {
     width: 35px;
     height: 35px;
 }
+
+.profile-info {
+    position: relative;
+}
+
+.drop-down {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    z-index: 20;
+    transform: translateX(-100%);
+    width: max-content;
+    left: 17px;
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid hsla(0, 0%, 100%, 0.15);
+}
+
+header .drop-down li {
+    padding: 5px 30px;
+}
+
+.drop-down a {
+    color: #ffffff;
+}
+
+header .drop-down *:hover {
+    background-color: rgb(40 40 40 / 90%);
+}

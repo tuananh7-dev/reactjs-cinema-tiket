@@ -11,6 +11,7 @@ const linkApi = {
     get_show_time_by_film_id: "/api/booking/get-show-time-by-film",
     get_room_structure: "/api/booking/get-room-structure",
     gen_qr_code: "/api/booking/gen-qr-code",
+    get_my_ticket: "/api/booking/my-ticket",
 };
 
 export default linkApi;

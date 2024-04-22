@@ -1,0 +1,117 @@
+.my-ticket::before {
+    content: "";
+    display: block;
+    height: var(--height-header);
+}
+
+.my-ticket {
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+.my-ticket .info {
+    margin-top: 15px;
+    display: flex;
+    gap: 40px;
+}
+
+.ticket {
+    flex-grow: 2;
+    cursor: pointer;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.ticket,
+.ticket-detail {
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.ticket__item {
+    display: flex;
+    gap: 40px;
+    padding: 15px 30px;
+    border-bottom: 1px dashed red;
+}
+
+.ticket__item:first {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.ticket__item:last-child {
+    border-bottom: unset;
+}
+
+.ticket__item:first-child:hover {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.ticket__item:hover {
+    background-color: #1d1d1d;
+}
+
+.ticket__item--img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+.ticket-detail {
+    flex-grow: 1;
+    flex-basis: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-ticket .qr-code,
+.film-info,
+.total-price {
+    padding: 15px 30px;
+}
+
+.my-ticket .qr-code {
+    flex-grow: 4;
+    text-align: center;
+    border-bottom: 1px dashed red;
+}
+
+.my-ticket .film-info {
+    flex-grow: 8;
+    border-bottom: 1px dashed red;
+    line-height: 50px;
+}
+
+.total-price {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Kiểu thanh cuộn cho trình duyệt WebKit */
+.scrollable::-webkit-scrollbar {
+    width: 0px; /* Chiều rộng của thanh cuộn */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu nền của thanh cuộn */
+    border-radius: 5px; /* Độ cong của viền thanh cuộn */
+}
+
+/* Kiểu thanh cuộn cho trình duyệt Firefox */
+.scrollable::-moz-scrollbar {
+    width: 4px; /* Chiều rộng của thanh cuộn */
+}
+
+.scrollable::-moz-scrollbar-thumb {
+    background-color: #888; /* Màu nền của thanh cuộn */
+    border-radius: 5px; /* Độ cong của viền thanh cuộn */
+}

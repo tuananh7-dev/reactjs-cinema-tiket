@@ -14,6 +14,7 @@ import Register from "./pages/register/register.component";
 import PickTime from "./pages/pick-time/pick-time.component";
 import PickSeat from "./pages/pick-seat/pick-seat.component";
 import Payment from "./pages/payment/payment.component";
+import MyTicket from "./pages/my-ticket/my-ticket.component";
 
 import "./index.css";
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/phim/chi-tiet/:id",
                 element: <FilmDetail />,
+            },
+            {
+                path: "/ve-cua-toi",
+                element: <MyTicket />,
             },
         ],
     },
