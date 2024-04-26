@@ -1,8 +1,10 @@
 import axios from "axios";
 
 import linkApi from "./link-api.config";
+import { toastError } from "./toast.config";
 
-const instance = axios.create({
+// Config axios with token
+const callApiWithToken = axios.create({
     baseURL: linkApi.base_url,
     headers: {
         "Access-Control-Allow-Origin": "*",
@@ -10,7 +12,7 @@ const instance = axios.create({
     },
 });
 
-instance.interceptors.request.use(
+callApiWithToken.interceptors.request.use(
     function (config) {
         config.headers.Authorization = "Bearer " + localStorage.getItem("token") || "";
         const { method, baseURL, url, params, data } = config;
@@ -23,14 +25,40 @@ instance.interceptors.request.use(
     }
 );
 
-instance.interceptors.response.use(
+callApiWithToken.interceptors.response.use(
     function (response) {
         return { data: response.data?.data, status: response.status };
     },
     async function (error) {
         console.log("🚀 ~ Axios response error:", error.response);
-        return error.response;
+        const result = error.response;
+        if (result.status === 403 || result.status === 401) {
+            window.location.href = "/dang-nhap";
+        }
+        return result;
     }
 );
 
-export default instance;
+// Config axios without token
+const callApiNotToken = axios.create({
+    baseURL: linkApi.base_url,
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+    },
+});
+
+callApiNotToken.interceptors.response.use(
+    function (response) {
+        return { data: response.data?.data, status: response.status };
+    },
+    async function (error) {
+        console.log("🚀 ~ Axios response error:", error.response);
+        const result = error.response;
+        toastError(result.data.message);
+        return result;
+    }
+);
+
+export { callApiNotToken };
+export default callApiWithToken;
