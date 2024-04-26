@@ -15,6 +15,7 @@ import PickTime from "./pages/pick-time/pick-time.component";
 import PickSeat from "./pages/pick-seat/pick-seat.component";
 import Payment from "./pages/payment/payment.component";
 import MyTicket from "./pages/my-ticket/my-ticket.component";
+import ShowTime from "./pages/show-time/show-time.component";
 
 import "./index.css";
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "lich-chieu",
-                element: <p style={{ height: "100vh" }}>Lịch chiếu</p>,
+                element: <ShowTime />,
             },
             {
                 path: "/phim/chi-tiet/:id",

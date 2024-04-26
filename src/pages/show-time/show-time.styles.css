@@ -1,0 +1,24 @@
+.show-time > * {
+    color: #fff;
+}
+
+.show-time .list-film {
+    margin-top: var(--height-header);
+    width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.show-time .film-item {
+    width: calc(100% / 4 - 10px);
+}
+
+.show-time .btn-booking {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.show-time .film-item > p {
+    line-height: 25px;
+}
