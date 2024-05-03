@@ -33,6 +33,7 @@ callApiWithToken.interceptors.response.use(
         console.log("🚀 ~ Axios response error:", error.response);
         const result = error.response;
         if (result.status === 403 || result.status === 401) {
+            localStorage.removeItem("token");
             window.location.href = "/dang-nhap";
         }
         return result;
